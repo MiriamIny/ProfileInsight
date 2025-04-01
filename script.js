@@ -48,6 +48,22 @@ document.addEventListener("DOMContentLoaded", function()
         
             // Call the async fetch data function and wait for the Promise to resolve
             let [genderData, ageData, nationalityData] = await fetchData();
+
+            // Update the HTML elements with the fetched data
+            genderResult.innerHTML = "<strong>Gender:</strong> " + (genderData.gender || "Unknown");
+            ageResult.innerHTML = "<strong>Age:</strong> " + (ageData.age || "Unknown");
+        
+            // Process nationality data and update the result
+            // If nationalityData.country list exists, display top 3 probable nationalities
+            if (nationalityData.country.length > 0) 
+            {
+                let topCountries = nationalityData.country.slice(0, 3).map(c => c.country_id).join(", ");
+                nationalityResult.innerHTML = "<strong>Nationality:</strong> " + topCountries;
+            } 
+            else 
+            {
+                nationalityResult.innerHTML = "<strong>Nationality:</strong> Unknown";
+            }
         
         } 
         catch (error) 
