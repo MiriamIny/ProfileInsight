@@ -1,16 +1,16 @@
 /* Base Variables for Customization */
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2c3e50;
+    --primary-color: #af8ea1;
+    --secondary-color: #556370;
     --bg-color: #ecf0f1;
-    --header-bg-color: #34495e;
-    --footer-bg-color: #363b40;
-    --text-color: #2c3e50;
-    --button-bg-color: #2980b9;
-    --button-hover-color: #1abc9c;
+    --header-bg-color: #7a8a9b;
+    --footer-bg-color: #7a8a9b;
+    --text-color: #86295b;
+    --button-bg-color: #af8ea1;
+    --button-hover-color: #cc557f;
     --main-border-radius: 14px;
     --input-border-radius: 10px;
-    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family:  Verdana, Geneva, Tahoma, sans-serif;
     --font-size: 16px;
     --header-font-size: 32px;
     --subheader-font-size: 22px;
