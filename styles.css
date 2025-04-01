@@ -147,6 +147,9 @@ ul li {
 }
 
 /* Result Section */
+.result{
+    display: none;
+}
 .result p {
     font-size: 18px;
     margin: 10px 0;
@@ -155,6 +158,27 @@ ul li {
 .placeholder {
     font-style: italic;
     color: #7f8c8d;
+}
+
+/* loader */
+.loader 
+{
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ddd; /* grey color for all borders*/
+    border-top-color: var(--button-hover-color); /* make top border colored for spinner*/
+    border-radius: 50%; /* round the box border into a circle */ 
+    animation: spin 0.8s linear infinite;
+
+    position: relative;  /* Ensures positioning relative to the nearest ancestor */
+    left: 50%;           /* Move to the middle horizontally */
+
+    display: none; /* Hidden by default */
+}
+
+@keyframes spin 
+{
+    100% {transform: rotate(360deg);}
 }
 
 /* Footer */
