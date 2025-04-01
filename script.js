@@ -71,5 +71,11 @@ document.addEventListener("DOMContentLoaded", function()
             // Handle any errors that occur in the try block
             alert(error); // Display an alert to the user
         } 
+        finally 
+        {
+            // hide loader and display results regardless of success or failure in try block
+            document.querySelector(".loader").style.display = "none";
+            document.querySelector(".result").style.display = "block";
+        }
     })
 })
