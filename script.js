@@ -31,10 +31,19 @@ document.addEventListener("DOMContentLoaded", function()
                     fetch(`https://api.nationalize.io?name=${nameInput}`)
                 ]);
     
-                // Check if API responses are successful, otherwise throw an error to be displayed in catch block
-                if (!genderResponse.ok) throw new Error("Gender API request failed.");
-                if (!ageResponse.ok) throw new Error("Age API request failed.");
-                if (!nationalityResponse.ok) throw new Error("Nationality API request failed.");
+                /* Error handling */
+                let errors = [];  // Initialize an array to store errors
+
+                // Check if any response failed and push errors to array
+                if (!genderResponse.ok) errors.push("Gender API request failed.");
+                if (!ageResponse.ok) errors.push("Age API request failed.");
+                if (!nationalityResponse.ok) errors.push("Nationality API request failed.");
+
+                // If there are errors, throw them all at once to be displayed in catch block
+                if (errors.length > 0) 
+                {
+                    throw new Error("Error: \n" + errors.join(" \n")); // Join errors with a separator
+                }
     
                 // Extract JSON data from each response (.json() is asynchronous function)
                 // Use await to ensure that execution is paused until json parsing is completed
@@ -69,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function()
         catch (error) 
         {
             // Handle any errors that occur in the try block
-            alert(error); // Display an alert to the user
+            alert(error.message); // Display an alert to the user
         } 
         finally 
         {
